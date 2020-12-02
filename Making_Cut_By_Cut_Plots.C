@@ -192,12 +192,8 @@ void Making_Cut_By_Cut_Plots() {
   NuMI_target_to_MicroBooNE[1] = 0.049604;
   NuMI_target_to_MicroBooNE[2] = 0.885008;
   
-  // Declare the two background muon candidate histograms.
-  TH1F*    muon_candidate_kinetic_energy_ext_background                      = new TH1F("muon_candidate_kinetic_energy_ext_background", "NuMI EXT Muon Candidate Kinetic_Energy", 100, 0., 2500.);
-  TH1F*    muon_candidate_kinetic_energy_ext_background_before_normalization = new TH1F("muon_candidate_kinetic_energy_ext_background_before_normalization", "NuMI EXT Muon Candidate Kinetic_Energy", 100, 0., 2500.);
-  TH1F*    muon_candidate_kinetic_energy_nu_background                       = new TH1F("muon_candidate_kinetic_energy_nu_background", "NuMI Neutrino Background Muon Candidate Kinetic_Energy", 100, 0., 2500.);
-  TH1F*    muon_candidate_kinetic_energy_nu_background_without_weights       = new TH1F("muon_candidate_kinetic_energy_nu_background_without_weights", "NuMI Neutrino Background Muon Candidate Kinetic_Energy", 100, 0., 2500.);
-  
+
+  // Declare the histograms.
   TH1F*    muon_candidate_length_signal                                      = new TH1F("muon_candidate_length_signal", "Signal Muon Candidate Length", 20, 0., 800.);
   TH1F*    muon_candidate_length_dirt                                        = new TH1F("muon_candidate_length_dirt", "Dirt Muon Candidate Length", 20, 0., 800.);
   TH1F*    muon_candidate_length_data                                        = new TH1F("muon_candidate_length_data", "Data Muon Candidate Length", 20, 0., 800.);
@@ -209,7 +205,8 @@ void Making_Cut_By_Cut_Plots() {
   TH1F*    muon_candidate_kinetic_energy_signal                              = new TH1F("muon_candidate_kinetic_energy_signal", "Signal Muon Candidate Kinetic_Energy", 100, 0., 2500.);
   TH1F*    muon_candidate_kinetic_energy_dirt                                = new TH1F("muon_candidate_kinetic_energy_dirt", "Dirt Muon Candidate Kinetic_Energy", 100, 0., 2500.);
   TH1F*    muon_candidate_kinetic_energy_data                                = new TH1F("muon_candidate_kinetic_energy_data", "Data Muon Candidate Kinetic_Energy", 100, 0., 2500.);
-  TH1F*    muon_candidate_kinetic_energy_data_before_subtraction             = new TH1F("muon_candidate_kinetic_energy_data_before_subtraction", "Data Muon Candidate Kinetic_Energy", 100, 0., 2500.);
+  TH1F*    muon_candidate_kinetic_energy_ext_background                      = new TH1F("muon_candidate_kinetic_energy_ext_background", "NuMI EXT Muon Candidate Kinetic_Energy", 100, 0., 2500.);
+  TH1F*    muon_candidate_kinetic_energy_nu_background                       = new TH1F("muon_candidate_kinetic_energy_nu_background", "NuMI Neutrino Background Muon Candidate Kinetic_Energy", 100, 0., 2500.);
   THStack* muon_candidate_kinetic_energy_stack                               = new THStack("muon_candidate_kinetic_energy_stack", "");
   TH1F*    muon_candidate_kinetic_energy_ratio                               = new TH1F("muon_candidate_kinetic_energy_ratio", "Muon Candidate Kinetic Energy", 100, 0., 2500.);
 
@@ -448,7 +445,6 @@ void Making_Cut_By_Cut_Plots() {
     if ( data_fails_perc_used_hits_in_cluster == 1 )
       continue;
     
-    muon_candidate_kinetic_energy_data_before_subtraction->Fill( data_muon_candidate_kinetic_energy );
     muon_candidate_kinetic_energy_data->Fill( data_muon_candidate_kinetic_energy );
     muon_candidate_length_data->Fill( data_muon_candidate_length );
     
@@ -607,7 +603,6 @@ void Making_Cut_By_Cut_Plots() {
 
     muon_candidate_length_ext_background->Fill( ext_background_muon_candidate_length );
     muon_candidate_kinetic_energy_ext_background->Fill( ext_background_muon_candidate_kinetic_energy );
-    muon_candidate_kinetic_energy_ext_background_before_normalization->Fill( ext_background_muon_candidate_kinetic_energy );
 
     // Calculate the directional cosine.
     ext_background_track_resultant = TMath::Sqrt( ( ext_background_other_end_location_x - ext_background_reco_vtx_x ) * ( ext_background_other_end_location_x - ext_background_reco_vtx_x ) + ( ext_background_other_end_location_y - ext_background_reco_vtx_y ) * ( ext_background_other_end_location_y - ext_background_reco_vtx_y ) + ( ext_background_other_end_location_z - ext_background_reco_vtx_z ) * ( ext_background_other_end_location_z - ext_background_reco_vtx_z ) );
@@ -678,7 +673,6 @@ void Making_Cut_By_Cut_Plots() {
 
     muon_candidate_length_nu_background->Fill( nu_background_muon_candidate_length, nu_background_ppfx_value_mcweight * nu_background_spline_fix_mcweight * nu_background_rootino_fix_mcweight * nu_background_central_value_mcweight);
     muon_candidate_kinetic_energy_nu_background->Fill( nu_background_muon_candidate_kinetic_energy, nu_background_ppfx_value_mcweight * nu_background_spline_fix_mcweight * nu_background_rootino_fix_mcweight * nu_background_central_value_mcweight );
-    muon_candidate_kinetic_energy_nu_background_without_weights->Fill( nu_background_muon_candidate_kinetic_energy );
     
     nu_background_flash_y_difference = nu_background_reco_vtx_y - nu_background_flash_y;
     nu_background_flash_z_difference = nu_background_reco_vtx_z - nu_background_flash_z;
