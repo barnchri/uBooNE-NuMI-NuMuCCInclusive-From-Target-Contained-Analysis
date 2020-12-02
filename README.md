@@ -1,7 +1,7 @@
 # uBooNE-NuMI-NuMuCCInclusive-From-Target-Contained-Analysis
 This is the analysis code used for my Ph.D. thesis measurement, the differential cross section of contained muon neutrino events from the NuMI beam target with MicroBooNE.
 
-This analysis involves a set of box cuts designed to separate out background from signal.  No machine learning framework is used in this analysis's selection.
+This analysis involves a set of box cuts designed to separate out background from signal.  No machine learning technique is used in this analysis's selection.
 
 This repository consists of three files:
 
