@@ -3,7 +3,7 @@
 // Plugin Type: producer
 // File:        UBXSec_module.cc
 //
-// Generated at Fri Jan  27 09:44:39 2017 by Marco Del Tutto using cetskelgen
+// Generated at Monday August 3 12:00:00 2020 by Christopher Barnes using cetskelgen
 // from cetlib version v1_21_00.
 ////////////////////////////////////////////////////////////////////////
 
@@ -15,15 +15,15 @@
  * \brief Art producer module
  *
  *
- * \author Marco Del Tutto <marco.deltutto@physics.ox.ac.uk>
+ * \author Christopher Barnes <cbarnes4@fnal.gov>
  *
  * \version producer
  *
- * \date 2017/03/10
+ * \date 2020/08/03
  *
- * Contact: marco.deltutto@physics.ox.ac.uk
+ * Contact: cbarnes4@fnal.gov
  *
- * Created on: Friday, March 10, 2017 at 12:32:31
+ * Created on: Monday August 3rd 12:00:00 by Christopher Barnes
  *
  */
 
